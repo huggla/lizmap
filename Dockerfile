@@ -18,3 +18,4 @@ ARG BUILDCMDS=\
 "&& mv lizmap-web-client /www "\
 "&& mv /www/lizmap/var/config /www/lizmap/var/config.dist \
     && mv /www/lizmap/www /www/lizmap/www.dist
+ARG STARTUPEXECUTABLES="/usr/sbin/php-fpm7"
