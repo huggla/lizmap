@@ -2,10 +2,10 @@
 # Init
 # =========================================================================
 # ARGs (can be passed to Build/Final) <BEGIN>
-ARG TAG="20190925"
+ARG TAG="20191018"
 ARG IMAGETYPE="application,base"
 ARG LIZMAP_VERSION="master"
-ARG BASEIMAGE="huggla/postgres-alpine:$TAG"
+ARG BASEIMAGE="huggla/qgisserver-alpine:$TAG"
 ARG ADDREPOS="http://dl-cdn.alpinelinux.org/alpine/edge/testing"
 ARG RUNDEPS="fcgi php7 php7-fpm php7-tokenizer php7-opcache php7-session \
     php7-iconv php7-intl php7-mbstring php7-openssl php7-fileinfo php7-curl \
