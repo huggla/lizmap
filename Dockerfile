@@ -4,7 +4,7 @@
 # ARGs (can be passed to Build/Final) <BEGIN>
 ARG SaM_VERSION="1.0"
 ARG TAG="20191018"
-ARG IMAGETYPE="application,base"
+ARG IMAGETYPE="application"
 ARG LIZMAP_VERSION="3.3.0"
 ARG QGISSERVER_VERSION="3.4-20191007"
 ARG BASEIMAGE="huggla/qgisserver-alpine:$QGISSERVER_VERSION"
