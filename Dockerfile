@@ -28,7 +28,8 @@ ARG FINALCMDS=\
 "&& cp profiles.ini.php.dist profiles.ini.php "\
 "&& cd ../../.. "\
 "&& php lizmap/install/installer.php "\
-"&& ln -s /tmp /var/lib/nginx/"
+"&& ln -s /tmp /var/lib/nginx/ "\
+"&& sed -i 's/80 default/8080 default/g' /etc/nginx/conf.d/default.conf"
 ARG EXECUTABLES="/usr/sbin/nginx"
 # ARGs (can be passed to Build/Final) </END>
 
