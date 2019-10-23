@@ -17,7 +17,7 @@ ARG DOWNLOADS="https://github.com/3liz/lizmap-web-client/archive/$LIZMAP_VERSION
 ARG MAKEDIRS="/home/data/cache /var/www/html"
 ARG BUILDCMDS=\
 "   rm -rf lizmap-web-client-$LIZMAP_VERSION/vagrant "\
-'&& mv lizmap-web-client-$LIZMAP_VERSION "/finalfs/var/www"'
+"&& mv lizmap-web-client-$LIZMAP_VERSION /finalfs/var/www"
 ARG FINALCMDS=\
 "   ln -s /var/www/lizmap-web-client-$LIZMAP_VERSION/lizmap/www /var/www/html/lizmap "\
 "&& cd /var/www/lizmap-web-client-$LIZMAP_VERSION "\
