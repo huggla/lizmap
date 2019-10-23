@@ -53,7 +53,8 @@ COPY --from=build /finalfs /
 # Final
 # =========================================================================
 ENV VAR_LINUX_USER="www-data" \
-    VAR_FINAL_COMMAND="nginx"
+    VAR_FINAL_COMMAND="nginx" \
+    VAR_LOG_FILE="/var/lib/nginx/logs/error.log"
 STOPSIGNAL SIGTERM
 
 # Generic template (don't edit) <BEGIN>
