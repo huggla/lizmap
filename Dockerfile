@@ -8,7 +8,6 @@ ARG IMAGETYPE="application,base"
 ARG LIZMAP_VERSION="3.3.0"
 ARG QGISSERVER_VERSION="3.4-20191007"
 ARG BASEIMAGE="huggla/qgisserver-alpine:$QGISSERVER_VERSION"
-ARG ADDREPOS="http://dl-cdn.alpinelinux.org/alpine/edge/testing"
 ARG RUNDEPS="nginx curl libressl fcgi php7 php7-fpm php7-tokenizer php7-opcache php7-session \
     php7-iconv php7-intl php7-mbstring php7-openssl php7-fileinfo php7-curl \
     php7-json php7-redis php7-pgsql php7-sqlite3 php7-gd php7-dom php7-xml \
