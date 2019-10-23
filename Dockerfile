@@ -20,7 +20,7 @@ ARG BUILDCMDS=\
 ARG FINALCMDS=\
 "   ln -s /var/www/lizmap-web-client-$LIZMAP_VERSION/lizmap/www /var/www/html/lizmap "\
 "&& cd /var/www/lizmap-web-client-$LIZMAP_VERSION "\
-"&& lizmap/install/set_rights.sh www-data www-data "\
+"&& lizmap/install/set_rights.sh 102 102 "\
 "&& cd lizmap/var/config "\
 "&& cp lizmapConfig.ini.php.dist lizmapConfig.ini.php "\
 "&& cp localconfig.ini.php.dist localconfig.ini.php "\
@@ -28,3 +28,33 @@ ARG FINALCMDS=\
 "&& cd ../../.. "\
 "&& php lizmap/install/installer.php"
 ARG STARTUPEXECUTABLES="/usr/sbin/php-fpm7"
+# ARGs (can be passed to Build/Final) </END>
+
+# Generic template (don't edit) <BEGIN>
+FROM ${CONTENTIMAGE1:-scratch} as content1
+FROM ${CONTENTIMAGE2:-scratch} as content2
+FROM ${CONTENTIMAGE3:-scratch} as content3
+FROM ${CONTENTIMAGE4:-scratch} as content4
+FROM ${INITIMAGE:-${BASEIMAGE:-huggla/base:$TAG}} as init
+# Generic template (don't edit) </END>
+
+# =========================================================================
+# Build
+# =========================================================================
+# Generic template (don't edit) <BEGIN>
+FROM ${BUILDIMAGE:-huggla/build:$TAG} as build
+FROM ${BASEIMAGE:-huggla/base:$TAG} as final
+COPY --from=build /finalfs /
+# Generic template (don't edit) </END>
+
+# =========================================================================
+# Final
+# =========================================================================
+ENV VAR_LINUX_USER="www-data" \
+    VAR_FINAL_COMMAND="nginx -g daemon off"
+STOPSIGNAL SIGTERM
+
+# Generic template (don't edit) <BEGIN>
+USER starter
+ONBUILD USER root
+# Generic template (don't edit) </END>
