@@ -28,10 +28,10 @@ ARG FINALCMDS=\
 "&& cp profiles.ini.php.dist profiles.ini.php "\
 "&& cd ../../.. "\
 "&& php lizmap/install/installer.php "\
-"&& ln -s /tmp /var/lib/nginx/ "\
 "&& sed -i 's/80 default/8080 default/g' /etc/nginx/conf.d/default.conf "\
 "&& sed -i 's/= nobody/= 102/g' /etc/php7/php-fpm.d/www.conf "\
-"&& sed -i 's|= 127.0.0.1:9000|= /run/php7/php-fpm.sock|' /etc/php7/php-fpm.d/www.conf"
+"&& sed -i 's|= 127.0.0.1:9000|= /run/php7/php-fpm.sock|' /etc/php7/php-fpm.d/www.conf "\
+"&& lizmap/install/set_rights.sh 102 102"
 ARG EXECUTABLES="/usr/sbin/nginx /usr/sbin/php-fpm7"
 # ARGs (can be passed to Build/Final) </END>
 
