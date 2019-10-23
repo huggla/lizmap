@@ -14,7 +14,7 @@ ARG RUNDEPS="nginx curl libressl fcgi php7 php7-fpm php7-tokenizer php7-opcache 
     php7-xmlrpc php7-xmlreader php7-xmlwriter php7-simplexml php7-phar \
     php7-gettext php7-ctype php7-zip php7-ldap"
 ARG DOWNLOADS="https://github.com/3liz/lizmap-web-client/archive/$LIZMAP_VERSION.tar.gz"
-ARG MAKEDIRS="/home/data/cache /var/www/html /var/lib/nginx/logs"
+ARG MAKEDIRS="/home/data/cache /var/www/html"
 ARG BUILDCMDS=\
 "   rm -rf lizmap-web-client-$LIZMAP_VERSION/vagrant "\
 "&& mv lizmap-web-client-$LIZMAP_VERSION /finalfs/var/www"
