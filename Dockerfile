@@ -2,6 +2,7 @@
 # Init
 # =========================================================================
 # ARGs (can be passed to Build/Final) <BEGIN>
+ARG SaM_VERSION="1.0"
 ARG TAG="20191018"
 ARG IMAGETYPE="application,base"
 ARG LIZMAP_VERSION="3.3.0"
@@ -16,8 +17,8 @@ ARG RUNDEPS="nginx curl libressl fcgi php7 php7-fpm php7-tokenizer php7-opcache 
 ARG DOWNLOADS="https://github.com/3liz/lizmap-web-client/archive/$LIZMAP_VERSION.tar.gz"
 ARG MAKEDIRS="/home/data/cache /var/www/html"
 ARG BUILDCMDS=\
-"   rm -rf lizmap-web-client-3.3.0/vagrant "\
-'&& mv lizmap-web-client-3.3.0 "/finalfs/var/www"'
+"   rm -rf lizmap-web-client-$LIZMAP_VERSION/vagrant "\
+'&& mv lizmap-web-client-$LIZMAP_VERSION "/finalfs/var/www"'
 ARG FINALCMDS=\
 "   ln -s /var/www/lizmap-web-client-$LIZMAP_VERSION/lizmap/www /var/www/html/lizmap "\
 "&& cd /var/www/lizmap-web-client-$LIZMAP_VERSION "\
@@ -36,15 +37,15 @@ FROM ${CONTENTIMAGE1:-scratch} as content1
 FROM ${CONTENTIMAGE2:-scratch} as content2
 FROM ${CONTENTIMAGE3:-scratch} as content3
 FROM ${CONTENTIMAGE4:-scratch} as content4
-FROM ${INITIMAGE:-${BASEIMAGE:-huggla/base:$TAG}} as init
+FROM ${INITIMAGE:-${BASEIMAGE:-huggla/base:$SaM_VERSION-$TAG}} as init
 # Generic template (don't edit) </END>
 
 # =========================================================================
 # Build
 # =========================================================================
 # Generic template (don't edit) <BEGIN>
-FROM ${BUILDIMAGE:-huggla/build:$TAG} as build
-FROM ${BASEIMAGE:-huggla/base:$TAG} as final
+FROM ${BUILDIMAGE:-huggla/build:$SaM_VERSION-$TAG} as build
+FROM ${BASEIMAGE:-huggla/base:$SaM_VERSION-$TAG} as final
 COPY --from=build /finalfs /
 # Generic template (don't edit) </END>
 
