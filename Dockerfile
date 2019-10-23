@@ -27,7 +27,7 @@ ARG FINALCMDS=\
 "&& cp profiles.ini.php.dist profiles.ini.php "\
 "&& cd ../../.. "\
 "&& php lizmap/install/installer.php"
-ARG STARTUPEXECUTABLES="/usr/sbin/php-fpm7"
+ARG EXECUTABLES="/usr/sbin/nginx"
 # ARGs (can be passed to Build/Final) </END>
 
 # Generic template (don't edit) <BEGIN>
