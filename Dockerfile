@@ -27,7 +27,8 @@ ARG FINALCMDS=\
 "&& cp localconfig.ini.php.dist localconfig.ini.php "\
 "&& cp profiles.ini.php.dist profiles.ini.php "\
 "&& cd ../../.. "\
-"&& php lizmap/install/installer.php"
+"&& php lizmap/install/installer.php "\
+"&& ln -s /tmp /var/lib/nginx/"
 ARG EXECUTABLES="/usr/sbin/nginx"
 # ARGs (can be passed to Build/Final) </END>
 
