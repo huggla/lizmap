@@ -59,7 +59,8 @@ ENV VAR_LINUX_USER="nginx" \
     VAR_FINAL_COMMAND="php-fpm7 && nginx" \
     VAR_NGINX_LOG_DIR="/var/log/nginx" \
     VAR_NGINX_SOCKET_DIR="/run/nginx" \
-    VAR_PHP_LOG_DIR="/var/log/php7"
+    VAR_PHPFPM_LOG_DIR="/var/log/php7" \
+    VAR_PHPFPM_SOCKET_DIR="/run/php-fpm"
 STOPSIGNAL SIGTERM
 
 # Generic template (don't edit) <BEGIN>
