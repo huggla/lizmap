@@ -1,2 +1,2 @@
-# lizmap
+# lizmap-alpine
 lizmap
