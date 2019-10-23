@@ -30,7 +30,7 @@ ARG FINALCMDS=\
 "&& php lizmap/install/installer.php "\
 "&& ln -s /tmp /var/lib/nginx/ "\
 "&& sed -i 's/80 default/8080 default/g' /etc/nginx/conf.d/default.conf"
-ARG EXECUTABLES="/usr/sbin/nginx"
+ARG EXECUTABLES="/usr/sbin/nginx /usr/sbin/php-fpm7"
 # ARGs (can be passed to Build/Final) </END>
 
 # Generic template (don't edit) <BEGIN>
