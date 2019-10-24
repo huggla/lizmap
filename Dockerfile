@@ -37,7 +37,6 @@ ARG FINALCMDS=\
 "&& cp profiles.ini.php.dist profiles.ini.php "\
 "&& cd ../../.. "\
 "&& php lizmap/install/installer.php "\
-"&& ln -sf /tmp /var/lib/nginx/ "\
 "&& sed -i '/^user /d' /etc/nginx/nginx.conf "\
 "&& sed -i 's/80 default/8080 default/g' /etc/nginx/conf.d/default.conf "\
 "&& sed -i '/= nobody/d' /etc/php7/php-fpm.d/www.conf "\
