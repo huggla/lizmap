@@ -30,14 +30,12 @@ ARG BUILDCMDS=\
 ARG FINALCMDS=\
 "   ln -s /var/www/lizmap-web-client-$LIZMAP_VERSION/lizmap/www /var/www/html/lizmap "\
 "&& cd /var/www/lizmap-web-client-$LIZMAP_VERSION "\
-"&& lizmap/install/set_rights.sh 102 102 "\
 "&& cd lizmap/var/config "\
 "&& cp lizmapConfig.ini.php.dist lizmapConfig.ini.php "\
 "&& cp localconfig.ini.php.dist localconfig.ini.php "\
 "&& cp profiles.ini.php.dist profiles.ini.php "\
 "&& cd ../../.. "\
 "&& php lizmap/install/installer.php "\
-"&& sed -i '/^user /d' /etc/nginx/nginx.conf "\
 "&& sed -i 's/listen[ ]+80;/listen 8080;/g' /etc/nginx/conf.d/default.conf "\
 "&& sed -i '/= nobody/d' /etc/php7/php-fpm.d/www.conf "\
 "&& sed -i 's|= 127.0.0.1:9000|= /run/php7/php-fpm.sock|' /etc/php7/php-fpm.d/www.conf "\
