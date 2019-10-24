@@ -70,6 +70,7 @@ ENV VAR_LINUX_USER="lizmap" \
     VAR_FINAL_COMMAND="php-fpm7 && nginx" \
     VAR_NGINX_LOG_DIR="/var/log/nginx" \
     VAR_NGINX_SOCKET_DIR="/run/nginx" \
+    VAR_NGINX_CACHE_DIR="/var/cache/nginx" \
     VAR_PHPFPM_LOG_DIR="/var/log/php7" \
     VAR_PHPFPM_SOCKET_DIR="/run/php7"
 STOPSIGNAL SIGTERM
