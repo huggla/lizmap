@@ -8,11 +8,20 @@ ARG IMAGETYPE="application"
 ARG LIZMAP_VERSION="3.3.0"
 ARG QGISSERVER_VERSION="3.4-20191007"
 ARG BASEIMAGE="huggla/qgisserver-alpine:$QGISSERVER_VERSION"
-ARG RUNDEPS="nginx curl libressl fcgi php7 php7-fpm php7-tokenizer php7-opcache php7-session \
+ARG INITCMDS=\
+'   alpineVersion="$(egrep -o '^[0-9]+\.[0-9]+' /etc/alpine-release)" '\
+'&& repoUrlPrefix="https://nginx.org/packages/mainline/alpine/v" '\
+'&& if ! wget --spider -q "$repoUrlPrefix$alpineVersion"; '\
+'   then '\
+'      alpineVersion="$(echo "$alpineVersion" | awk -F . '"'"'{system("echo -n "$1". && expr "$2" - 1")}'"'"')"; '\
+'   fi '\
+'&& echo "$repoUrlPrefix$alpineVersion/main" >> /etc/apk/repositories'
+ARG RUNDEPS="curl libressl fcgi php7 php7-fpm php7-tokenizer php7-opcache php7-session \
     php7-iconv php7-intl php7-mbstring php7-openssl php7-fileinfo php7-curl \
     php7-json php7-redis php7-pgsql php7-sqlite3 php7-gd php7-dom php7-xml \
     php7-xmlrpc php7-xmlreader php7-xmlwriter php7-simplexml php7-phar \
     php7-gettext php7-ctype php7-zip php7-ldap"
+ARG RUNDEPS_UNTRUSTED="nginx"
 ARG DOWNLOADS="https://github.com/3liz/lizmap-web-client/archive/$LIZMAP_VERSION.tar.gz"
 ARG MAKEDIRS="/home/data/cache /var/www/html"
 ARG BUILDCMDS=\
