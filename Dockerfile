@@ -28,6 +28,7 @@ ARG FINALCMDS=\
 "&& cp profiles.ini.php.dist profiles.ini.php "\
 "&& cd ../../.. "\
 "&& php lizmap/install/installer.php "\
+"&& sed -i '/^user /d' /etc/nginx/nginx.conf "\
 "&& sed -i 's/80 default/8080 default/g' /etc/nginx/conf.d/default.conf "\
 "&& sed -i '/= nobody/d' /etc/php7/php-fpm.d/www.conf "\
 "&& sed -i 's|= 127.0.0.1:9000|= /run/php7/php-fpm.sock|' /etc/php7/php-fpm.d/www.conf "\
@@ -56,7 +57,7 @@ COPY --from=build /finalfs /
 # =========================================================================
 # Final
 # =========================================================================
-ENV VAR_LINUX_USER="nginx" \
+ENV VAR_LINUX_USER="lizmap" \
     VAR_FINAL_COMMAND="php-fpm7 && nginx" \
     VAR_NGINX_LOG_DIR="/var/log/nginx" \
     VAR_NGINX_SOCKET_DIR="/run/nginx" \
