@@ -37,7 +37,7 @@ ARG FINALCMDS=\
 "&& cd ../../.. "\
 "&& php lizmap/install/installer.php "\
 "&& sed -i '/^user /d' /etc/nginx/nginx.conf "\
-"&& sed -i 's/listen[[:blank:]]+80/listen 8080/' /etc/nginx/conf.d/default.conf "\
+"&& sed -i 's/listen[[:blank:]]*80/listen 8080/' /etc/nginx/conf.d/default.conf "\
 "&& sed -i '/= nobody/d' /etc/php7/php-fpm.d/www.conf "\
 "&& sed -i 's|= 127.0.0.1:9000|= /run/php7/php-fpm.sock|' /etc/php7/php-fpm.d/www.conf "\
 "&& lizmap/install/set_rights.sh 102 102"
