@@ -7,6 +7,8 @@
 
 if [ "$isFirstRun" == "true" ]
 then
-   sed -i "s|/var/log/nginx|$VAR_NGINX_LOG_DIR|g" "$VAR_CONFIG_FILE"
-   sed -i "s|/var/run/nginx.pid|$VAR_NGINX_SOCKET_DIR/nginx.pid|" "$VAR_CONFIG_FILE"
+   if [ ! -s "$VAR_CONFIG_FILE" ] && [ "$VAR_CONFIG_FILE" != "/etc/nginx/nginx.conf" ]
+   then
+      cp "/etc/nginx/nginx.conf" "$VAR_CONFIG_FILE"
+   fi
 fi
