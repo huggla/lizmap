@@ -1,0 +1,12 @@
+# Set in stage2:
+# ---------------------------------------------------------
+# set -ef +am
+# isFirstRun
+# VAR_*
+# All functions in /start/functions
+
+if [ "$isFirstRun" == "true" ]
+then
+   sed -i "s|/var/log/nginx|$VAR_NGINX_LOG_DIR|g" /etc/nginx/nginx.conf
+   sed -i "s|/var/run/nginx.pid|$VAR_NGINX_SOCKET_DIR/nginx.pid|" /etc/nginx/nginx.conf
+fi
