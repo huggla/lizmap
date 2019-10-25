@@ -67,7 +67,7 @@ COPY --from=build /finalfs /
 # =========================================================================
 ENV VAR_LINUX_USER="lizmap" \
     VAR_CONFIG_FILE="/etc/nginx/nginx.conf" \
-    VAR_FINAL_COMMAND='php-fpm7 && nginx -c "$VAR_CONFIG_FILE"' \
+    VAR_FINAL_COMMAND='php-fpm7 && nginx -c "$VAR_CONFIG_FILE" -g "daemon off;"' \
     VAR_NGINX_LOG_DIR="/var/log/nginx" \
     VAR_NGINX_SOCKET_DIR="/run/nginx" \
     VAR_NGINX_CACHE_DIR="/var/cache/nginx" \
