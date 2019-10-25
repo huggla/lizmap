@@ -7,6 +7,6 @@
 
 if [ "$isFirstRun" == "true" ]
 then
-   sed -i "s|/var/log/nginx|$VAR_NGINX_LOG_DIR|g" /etc/nginx/nginx.conf
-   sed -i "s|/var/run/nginx.pid|$VAR_NGINX_SOCKET_DIR/nginx.pid|" /etc/nginx/nginx.conf
+   sed -i "s|/var/log/nginx|$VAR_NGINX_LOG_DIR|g" "$VAR_CONFIG_FILE"
+   sed -i "s|/var/run/nginx.pid|$VAR_NGINX_SOCKET_DIR/nginx.pid|" "$VAR_CONFIG_FILE"
 fi
