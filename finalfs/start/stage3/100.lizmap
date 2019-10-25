@@ -13,4 +13,8 @@ then
       sed -i "s|/var/run/nginx.pid|$VAR_NGINX_SOCKET_DIR/nginx.pid|" "/etc/nginx/nginx.conf"
       cp "/etc/nginx/nginx.conf" "$VAR_CONFIG_FILE"
    fi
+   if [ -z "$(ls -A "$VAR_CONFIG_DIR")" ] && [ "$VAR_CONFIG_DIR" != "/etc/nginx/conf.d" ]
+   then
+      cp /etc/nginx/conf.d/* "$VAR_CONFIG_DIR"
+   fi
 fi
