@@ -7,9 +7,9 @@
 
 if [ "$isFirstRun" == "true" ]
 then
-   sed -i "s|/var/log/nginx|$VAR_NGINX_LOG_DIR|g" "/etc/nginx/nginx.conf"
-   sed -i "s|/var/run/nginx.pid|$VAR_NGINX_SOCKET_DIR/nginx.pid|" "/etc/nginx/nginx.conf"
-   sed -i "s|server_name localhost|server_name $VAR_SERVER_NAME|" "/etc/nginx/conf.d/default.conf"
+   eval "sed -i 's|/var/log/nginx|$VAR_NGINX_LOG_DIR|g' /etc/nginx/nginx.conf"
+   eval "sed -i 's|/var/run/nginx.pid|$VAR_NGINX_SOCKET_DIR/nginx.pid|' /etc/nginx/nginx.conf"
+   eval "sed -i 's|server_name localhost|server_name $VAR_SERVER_NAME|' /etc/nginx/conf.d/default.conf"
    if [ ! -s "$VAR_CONFIG_FILE" ] && [ "$VAR_CONFIG_FILE" != "/etc/nginx/nginx.conf" ]
    then
       mv "/etc/nginx/nginx.conf" "$VAR_CONFIG_FILE"
