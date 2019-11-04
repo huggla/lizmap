@@ -75,7 +75,9 @@ ENV VAR_LINUX_USER="lizmap" \
     VAR_NGINX_CACHE_DIR="/var/cache/nginx" \
     VAR_PHPFPM_LOG_DIR="/var/log/php7" \
     VAR_PHPFPM_SOCKET_DIR="/run/php7" \
-    VAR_SERVER_NAME="localhost"
+    VAR_SERVER_NAME="localhost" \
+    VAR_SERVER_PORT="8080" \
+    VAR_HTTPS=""
 STOPSIGNAL SIGTERM
 
 # Generic template (don't edit) <BEGIN>
