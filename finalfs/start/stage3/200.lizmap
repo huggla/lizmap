@@ -20,7 +20,8 @@ then
       mv /etc/nginx/conf.d/* "${VAR_NGINX_CONFIG_DIR%/}/"
    fi
    cd "$VAR_LIZMAP_CONFIG_DIR"
-   if [ -z "$(ls -A)" ]
+   conf="$(ls -A)"
+   if [ -z "$conf" ] || [ "$conf" == ".snapshot" ]
    then
       tar -xpf /var/www/lizmap-web-client/lizmap/var.tar.gz --strip-components=1
    fi
