@@ -31,9 +31,9 @@ ARG FINALCMDS=\
 "   ln -s /var/www/lizmap-web-client-$LIZMAP_VERSION/lizmap/www /var/www/html/lizmap "\
 "&& cd /var/www/lizmap-web-client-$LIZMAP_VERSION "\
 "&& cd lizmap/var/config "\
-"&& cp lizmapConfig.ini.php.dist lizmapConfig.ini.php "\
-"&& cp localconfig.ini.php.dist localconfig.ini.php "\
-"&& cp profiles.ini.php.dist profiles.ini.php "\
+"&& mv lizmapConfig.ini.php.dist lizmapConfig.ini.php "\
+"&& mv localconfig.ini.php.dist localconfig.ini.php "\
+"&& mv profiles.ini.php.dist profiles.ini.php "\
 "&& cd ../../.. "\
 "&& mv /etc/nginx/sites-available/default.conf /etc/nginx/sites-available/default.conf.tmp "\
 "&& php lizmap/install/installer.php "\
@@ -43,7 +43,10 @@ ARG FINALCMDS=\
 "&& sed -i 's|= 127.0.0.1:9000|= /run/php7/php-fpm.sock|' /etc/php7/php-fpm.d/www.conf "\
 "&& lizmap/install/set_rights.sh 102 102 "\
 "&& cd /etc/nginx/conf.d "\
-"&& ln -sf ../sites-available/default.conf default.conf"
+"&& ln -sf ../sites-available/default.conf default.conf "\
+"&& cd /var/www/lizmap-web-client-$LIZMAP_VERSION/lizmap "\
+'&& tar -cpf var.tar.gz var '\
+'&& rm -rf var'
 ARG EXECUTABLES="/usr/sbin/nginx /usr/sbin/php-fpm7"
 # ARGs (can be passed to Build/Final) </END>
 
