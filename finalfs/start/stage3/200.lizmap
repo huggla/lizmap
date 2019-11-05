@@ -19,6 +19,8 @@ then
    then
       mv /etc/nginx/conf.d/* "${VAR_NGINX_CONFIG_DIR%/}/"
    fi
-   ln -s 
-   if [ ! -e "/var/www/lizmap-web-client/lizmap/var
+   cd "$VAR_LIZMAP_CONFIG_DIR"
+   if [ -z "$(ls -A)" ]
+   then
+      tar 
 fi
