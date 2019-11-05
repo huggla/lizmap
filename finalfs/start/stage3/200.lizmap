@@ -22,5 +22,7 @@ then
    cd "$VAR_LIZMAP_CONFIG_DIR"
    if [ -z "$(ls -A)" ]
    then
-      tar -xpf /var/www/var.tar.gz var
+      tar -xpf /var/www/lizmap-web-client/lizmap/var.tar.gz
+   fi
+   ln -s "$VAR_LIZMAP_CONFIG_DIR" /var/www/lizmap-web-client/lizmap/var
 fi
