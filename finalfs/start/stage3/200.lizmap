@@ -11,12 +11,14 @@ then
    eval "sed -i 's|/var/run/nginx.pid|$VAR_NGINX_SOCKET_DIR/nginx.pid|' /etc/nginx/nginx.conf"
    eval "sed -i 's|VAR_SERVER_NAME|$VAR_SERVER_NAME|g' /etc/nginx/sites-available/default.conf"
    eval "sed -i 's|VAR_SERVER_PORT|$VAR_SERVER_PORT|g' /etc/nginx/sites-available/default.conf"
-   if [ ! -s "$VAR_CONFIG_FILE" ] && [ "$VAR_CONFIG_FILE" != "/etc/nginx/nginx.conf" ]
+   if [ ! -s "$VAR_NGINX_CONFIG_FILE" ] && [ "$VAR_NGINX_CONFIG_FILE" != "/etc/nginx/nginx.conf" ]
    then
-      mv "/etc/nginx/nginx.conf" "$VAR_CONFIG_FILE"
+      mv "/etc/nginx/nginx.conf" "$VAR_NGINX_CONFIG_FILE"
    fi
-   if [ -z "$(ls -A "$VAR_CONFIG_DIR")" ] && [ "$VAR_CONFIG_DIR" != "/etc/nginx/conf.d" ]
+   if [ -z "$(ls -A "$VAR_NGINX_CONFIG_DIR")" ] && [ "$VAR_NGINX_CONFIG_DIR" != "/etc/nginx/conf.d" ]
    then
-      mv /etc/nginx/conf.d/* "${VAR_CONFIG_DIR%/}/"
+      mv /etc/nginx/conf.d/* "${VAR_NGINX_CONFIG_DIR%/}/"
    fi
+   ln -s 
+   if [ ! -e "/var/www/lizmap-web-client/lizmap/var
 fi
