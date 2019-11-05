@@ -26,10 +26,10 @@ ARG DOWNLOADS="https://github.com/3liz/lizmap-web-client/archive/$LIZMAP_VERSION
 ARG MAKEDIRS="/home/data/cache /var/www/html"
 ARG BUILDCMDS=\
 "   rm -rf lizmap-web-client-$LIZMAP_VERSION/vagrant "\
-"&& mv lizmap-web-client-$LIZMAP_VERSION /finalfs/var/www"
+"&& mv lizmap-web-client-$LIZMAP_VERSION /finalfs/var/www/lizmap-web-client"
 ARG FINALCMDS=\
-"   ln -s /var/www/lizmap-web-client-$LIZMAP_VERSION/lizmap/www /var/www/html/lizmap "\
-"&& cd /var/www/lizmap-web-client-$LIZMAP_VERSION "\
+"   ln -s /var/www/lizmap-web-client/lizmap/www /var/www/html/lizmap "\
+"&& cd /var/www/lizmap-web-client "\
 "&& cd lizmap/var/config "\
 "&& mv lizmapConfig.ini.php.dist lizmapConfig.ini.php "\
 "&& mv localconfig.ini.php.dist localconfig.ini.php "\
@@ -44,7 +44,7 @@ ARG FINALCMDS=\
 "&& lizmap/install/set_rights.sh 102 102 "\
 "&& cd /etc/nginx/conf.d "\
 "&& ln -sf ../sites-available/default.conf default.conf "\
-"&& cd /var/www/lizmap-web-client-$LIZMAP_VERSION/lizmap "\
+"&& cd /var/www/lizmap-web-client/lizmap "\
 '&& tar -cpf var.tar.gz var '\
 '&& rm -rf var'
 ARG EXECUTABLES="/usr/sbin/nginx /usr/sbin/php-fpm7"
