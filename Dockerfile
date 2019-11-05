@@ -71,7 +71,7 @@ COPY --from=build /finalfs /
 ENV VAR_LINUX_USER="lizmap" \
     VAR_CONFIG_FILE="/etc/nginx/nginx.conf" \
     VAR_CONFIG_DIR="/etc/nginx/conf.d" \
-    VAR_FINAL_COMMAND='/usr/local/bin/spawn-fcgi -n -d $VAR_PROJECT_STORAGE_DIR -s $VAR_SOCKET_DIR/fastcgi.sock -M 777 -- /usr/local/bin/multiwatch -f $VAR_FCGICHILDREN /usr/qgis/qgis_mapserv.fcgi && php-fpm7 && VAR_SERVER_NAME=$VAR_SERVER_NAME VAR_SERVER_PORT=$VAR_SERVER_PORT nginx -c "$VAR_CONFIG_FILE" -g "daemon off;"' \
+    VAR_FINAL_COMMAND='/usr/local/bin/spawn-fcgi -d $VAR_PROJECT_STORAGE_DIR -s $VAR_SOCKET_DIR/fastcgi.sock -M 777 -- /usr/local/bin/multiwatch -f $VAR_FCGICHILDREN /usr/qgis/qgis_mapserv.fcgi && php-fpm7 && VAR_SERVER_NAME=$VAR_SERVER_NAME VAR_SERVER_PORT=$VAR_SERVER_PORT nginx -c "$VAR_CONFIG_FILE" -g "daemon off;"' \
     VAR_NGINX_LOG_DIR="/var/log/nginx" \
     VAR_NGINX_SOCKET_DIR="/run/nginx" \
     VAR_NGINX_CACHE_DIR="/var/cache/nginx" \
